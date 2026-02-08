@@ -149,7 +149,7 @@ export default function GameScreen({ onExit }: GameScreenProps) {
           <span className="gradient-text">Game Over!</span>
         </h1>
         <p
-          className="animate-slide-up relative z-10 max-w-md text-lg text-zinc-600 dark:text-zinc-400"
+          className="animate-slide-up relative z-10 max-w-md text-lg text-zinc-600"
           style={{ animationDelay: "500ms", opacity: 0 }}
         >
           Thanks for playing Four Corners — Situation Edition! Hope everyone had
@@ -163,13 +163,13 @@ export default function GameScreen({ onExit }: GameScreenProps) {
             onClick={handleRestart}
             className="group rounded-full bg-gradient-to-r from-[#FF6B6B] via-[#FFD93D] to-[#6C5CE7] p-1 shadow-xl transition-transform hover:scale-110 active:scale-95"
           >
-            <span className="flex items-center gap-2 rounded-full bg-white px-8 py-3 text-lg font-bold text-zinc-800 dark:bg-zinc-900 dark:text-zinc-100">
+            <span className="flex items-center gap-2 rounded-full bg-white px-8 py-3 text-lg font-bold text-zinc-800">
               🔄 Play Again
             </span>
           </button>
           <button
             onClick={onExit}
-            className="rounded-full border-2 border-zinc-300 px-8 py-3 text-lg font-bold text-zinc-600 transition-transform hover:scale-105 active:scale-95 dark:border-zinc-600 dark:text-zinc-300"
+            className="rounded-full border-2 border-zinc-300 px-8 py-3 text-lg font-bold text-zinc-600 transition-transform hover:scale-105 active:scale-95"
           >
             🏠 Home
           </button>
@@ -216,7 +216,7 @@ export default function GameScreen({ onExit }: GameScreenProps) {
       <div className="relative z-20 flex items-center justify-between px-5 pt-4 sm:px-8 sm:pt-5">
         <button
           onClick={onExit}
-          className="rounded-xl border border-zinc-200 bg-white/80 px-3 py-1.5 text-sm font-semibold text-zinc-500 backdrop-blur transition-colors hover:bg-zinc-100 dark:border-zinc-700 dark:bg-zinc-800/80 dark:text-zinc-400 dark:hover:bg-zinc-700"
+          className="rounded-xl border border-zinc-200 bg-white/80 px-3 py-1.5 text-sm font-semibold text-zinc-500 backdrop-blur transition-colors hover:bg-zinc-100"
         >
           ✕ Exit
         </button>
@@ -229,7 +229,7 @@ export default function GameScreen({ onExit }: GameScreenProps) {
         <button
           onClick={handlePrev}
           disabled={roundIndex === 0}
-          className="rounded-xl border border-zinc-200 bg-white/80 px-3 py-1.5 text-sm font-semibold text-zinc-500 backdrop-blur transition-all hover:bg-zinc-100 disabled:opacity-0 dark:border-zinc-700 dark:bg-zinc-800/80 dark:text-zinc-400"
+          className="rounded-xl border border-zinc-200 bg-white/80 px-3 py-1.5 text-sm font-semibold text-zinc-500 backdrop-blur transition-all hover:bg-zinc-100 disabled:opacity-0"
         >
           ← Back
         </button>
@@ -272,7 +272,7 @@ export default function GameScreen({ onExit }: GameScreenProps) {
             tabIndex={phase === "prompt" ? 0 : undefined}
           >
             <span className="mb-3 inline-block text-5xl">🤔</span>
-            <h2 className="text-xl font-extrabold leading-relaxed text-zinc-800 sm:text-2xl md:text-3xl lg:text-4xl dark:text-zinc-100">
+            <h2 className="text-xl font-extrabold leading-relaxed text-zinc-800 sm:text-2xl md:text-3xl lg:text-4xl">
               {currentPrompt.question}
             </h2>
             {phase === "prompt" && (
@@ -288,7 +288,7 @@ export default function GameScreen({ onExit }: GameScreenProps) {
                 onClick={handleNext}
                 className="group rounded-full bg-gradient-to-r from-[#FF6B6B] via-[#FFD93D] to-[#6C5CE7] p-1 shadow-xl transition-transform hover:scale-110 active:scale-95"
               >
-                <span className="flex items-center gap-2 rounded-full bg-white px-10 py-4 text-lg font-extrabold text-zinc-800 dark:bg-zinc-900 dark:text-zinc-100">
+                <span className="flex items-center gap-2 rounded-full bg-white px-10 py-4 text-lg font-extrabold text-zinc-800">
                   {roundIndex < prompts.length - 1
                     ? "Next Round →"
                     : "Finish 🎉"}

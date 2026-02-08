@@ -28,17 +28,6 @@
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #1a1a2e;
-    --foreground: #eaeaea;
-    --corner-a-light: #4a2020;
-    --corner-b-light: #1a3a36;
-    --corner-c-light: #4a4020;
-    --corner-d-light: #2a2640;
-  }
-}
-
 * {
   box-sizing: border-box;
 }
