@@ -95,6 +95,11 @@ export default function Home() {
           </span>
         </button>
       </div>
+      <div className="mt-12">
+        <p className="text-xs text-zinc-500 dark:text-zinc-400">
+          Developed by Sai Amartya &amp; Aamir.
+        </p>
+      </div>
     </div>
   );
 }
