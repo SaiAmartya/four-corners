@@ -13,111 +13,111 @@ export const prompts: Prompt[] = [
   {
     id: 1,
     question:
-      "If you suddenly had a completely free weekend with no homework or obligations, would you...",
+      "If you suddenly had a completely free day with no responsibilities, would you most likely…",
     corners: {
-      A: "Binge-watch an entire show/series you've been meaning to see",
-      B: "Go out and do something active (hiking, sports, adventure)",
-      C: "Work on a personal project or creative hobby",
-      D: "Hang out with friends doing absolutely nothing productive",
+      A: "Spend it relaxing alone",
+      B: "Hang out with friends or family",
+      C: "Go out and explore (city, nature, events)",
+      D: "Work on a personal project or hobby",
     },
   },
   {
     id: 2,
     question:
-      "If you could restart high school knowing everything you know now, would you...",
+      "If your teacher let you design the perfect class for one day, would you choose to…",
     corners: {
-      A: "Take completely different courses and explore new interests",
-      B: "Join different clubs and friend groups",
-      C: "Change nothing \u2014 you like where you ended up",
-      D: "Focus way less on grades and way more on experiences",
+      A: "Do hands-on activities or experiments",
+      B: "Have a discussion/debate on interesting topics",
+      C: "Work independently on something you care about",
+      D: "Go on a field trip or do something outside the classroom",
     },
   },
   {
     id: 3,
     question:
-      "If you had to give a 20-minute presentation tomorrow, which topic would you choose?",
+      "If you were put in charge of improving your school, your first priority would be to…",
     corners: {
-      A: "Something you're genuinely passionate about (even if niche)",
-      B: "A controversial topic that would spark debate",
-      C: "Something entertaining that would make people laugh",
-      D: "A practical \u201Clife hack\u201D topic everyone would find useful",
+      A: "Improve mental health and wellbeing supports",
+      B: "Improve school facilities (cafeteria, gym, lockers, tech)",
+      C: "Improve teaching and learning (less homework, more projects, etc.)",
+      D: "Improve clubs, teams, and student events",
     },
   },
   {
     id: 4,
     question:
-      "If you could design your ideal learning environment for the rest of high school, would you pick...",
+      "If you could instantly become really good at one type of skill, you would choose…",
     corners: {
-      A: "Fully online/self-paced (learn anywhere, anytime)",
-      B: "Traditional classroom but with way more hands-on projects",
-      C: "Apprenticeship-style learning with real professionals",
-      D: "Small discussion-based seminars (10\u201315 students max)",
+      A: "Creative skills (art, music, writing, design)",
+      B: "Physical skills (sports, dance, fitness)",
+      C: "Academic/technical skills (math, science, coding, languages)",
+      D: "Social/leadership skills (public speaking, leading groups, networking)",
     },
   },
   {
     id: 5,
     question:
-      "If you won $5,000 but had to spend it within one week, would you...",
+      "If you were planning a fun weekend with no school work, you would mainly…",
     corners: {
-      A: "Upgrade all your tech (laptop, phone, setup)",
-      B: "Take a spontaneous trip somewhere you've never been",
-      C: "Invest in a business idea or personal project",
-      D: "Throw an absolutely legendary party/experience for friends",
+      A: "Stay in and watch shows, play games, or read",
+      B: "Go out to social events or see friends",
+      C: "Do something active (sports, walking, gym, dance)",
+      D: "Work on a goal or project that matters to you",
     },
   },
   {
     id: 6,
     question:
-      "If you could master one competitive activity/game instantly, which would you choose?",
+      "If you could choose how group projects are usually done, you would prefer…",
     corners: {
-      A: "A popular esport or video game (League, Valorant, etc.)",
-      B: "A traditional sport (basketball, soccer, etc.)",
-      C: "Chess, poker, or another strategy game",
-      D: "A performing art (dance, music, debate)",
+      A: "Everyone has assigned roles from the start",
+      B: "People choose roles based on what they're good at",
+      C: "The group plans together and shares all tasks",
+      D: "People work mostly alone and then combine their parts",
     },
   },
   {
     id: 7,
     question:
-      "If you had to spend an entire month with only one form of entertainment, what would you keep?",
+      "If you were joining a brand-new club or team, what would matter most to you at first?",
     corners: {
-      A: "Music and podcasts only",
-      B: "Video games only",
-      C: "Books and articles only",
-      D: "Social media and messaging only",
+      A: "Feeling welcomed and included right away",
+      B: "Having clear goals and expectations",
+      C: "Having fun and not feeling too much pressure",
+      D: "Having chances to improve and challenge yourself",
     },
   },
   {
     id: 8,
     question:
-      "If you could guarantee one skill that would impress people at parties/social events, would you choose...",
+      "If you could change how breaks/lunch work at school, you would want…",
     corners: {
-      A: "Being incredibly funny and quick-witted",
-      B: "Telling amazing stories from personal experiences",
-      C: "Having deep knowledge about interesting topics",
-      D: "Being able to connect with anyone and make them comfortable",
+      A: "Longer breaks but fewer of them",
+      B: "More frequent short breaks",
+      C: "The option to go outside more often",
+      D: "More spaces/activities indoors to relax or socialize",
     },
   },
   {
     id: 9,
     question:
-      "If you had to choose your post-graduation path right now, which appeals most?",
+      "If you had extra money saved up, your first choice would be to…",
     corners: {
-      A: "University for 4 years (traditional route, broaden options)",
-      B: "Gap year traveling/working, then figure it out",
-      C: "Jump straight into a career/trade/startup",
-      D: "Online learning/certificates while working part-time",
+      A: "Spend it on experiences (trips, concerts, events)",
+      B: "Spend it on things you want (clothes, games, tech)",
+      C: "Save it for the future",
+      D: "Use some of it to help others or a cause you care about",
     },
   },
   {
     id: 10,
     question:
-      "If you could change one thing about how school/society measures success, what would it be?",
+      "If you could choose the type of challenge you face in life (knowing you'd grow from it), you'd choose…",
     corners: {
-      A: "Focus on creativity and original thinking over memorization",
-      B: "Value collaboration and teamwork over individual competition",
-      C: "Measure growth and improvement rather than absolute performance",
-      D: "Recognize different types of intelligence equally (not just academic)",
+      A: "Academic/intellectual challenge (hard class, big project)",
+      B: "Social challenge (meeting new people, public speaking)",
+      C: "Physical challenge (sport, race, fitness goal)",
+      D: "Creative challenge (performance, artwork, big creative project)",
     },
   },
 ];
