@@ -152,7 +152,7 @@ export default function GameScreen({ onExit }: GameScreenProps) {
           className="animate-slide-up relative z-10 max-w-md text-lg text-zinc-600"
           style={{ animationDelay: "500ms", opacity: 0 }}
         >
-          Thanks for playing Four Corners — Situation Edition! Hope everyone had
+          Thanks for playing Four Corners — Trolley Problems! Hope everyone had
           a great time choosing their corners! 🏃‍♂️
         </p>
         <div

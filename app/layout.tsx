@@ -13,7 +13,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Four Corners — Situation Edition",
+  title: "Four Corners — Trolley Problems",
   description:
     "A fun group activity game! Pick your answer and run to the matching corner of the room.",
 };
