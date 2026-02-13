@@ -95,8 +95,8 @@ export default function DiscussionTimer({
         </span>
       </div>
       <span
-        className={`text-xs font-semibold uppercase tracking-widest ${
-          isExpired ? "animate-pulse-slow text-[#FF6B6B]" : "text-zinc-400"
+        className={`text-sm font-bold uppercase tracking-widest ${
+          isExpired ? "animate-pulse-slow text-base text-[#FF6B6B]" : "text-zinc-400"
         }`}
       >
         {isExpired ? "Make your decision!" : "Discuss & Persuade"}
