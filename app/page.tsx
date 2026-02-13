@@ -28,7 +28,7 @@ export default function Home() {
         {/* Title */}
         <div className="animate-pop-in">
           <h1 className="text-5xl font-black leading-tight tracking-tight sm:text-6xl md:text-7xl">
-            <span className="gradient-text">Four Corners - Situation Edition</span>
+            <span className="gradient-text">Four Corners - Trolley Problems</span>
           </h1>
         </div>
 
@@ -45,6 +45,17 @@ export default function Home() {
               </p>
               <p className="text-xs text-zinc-500">
                 A situation appears on screen
+              </p>
+            </div>
+          </div>
+          <div className="flex items-start gap-3">
+            <span className="text-2xl">🗣️</span>
+            <div>
+              <p className="text-sm font-bold text-zinc-700">
+                Persuade your group
+              </p>
+              <p className="text-xs text-zinc-500">
+                Be quick! Time is ticking...
               </p>
             </div>
           </div>

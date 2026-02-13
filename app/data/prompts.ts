@@ -19,7 +19,7 @@ export const prompts: Prompt[] = [
   {
     id: "P01",
     prompt:
-      "There are three trolleys about to run over the players of these football clubs — you can only save one. Which do you save?",
+      "There are three trolleys about to run over the players of these football clubs. You can only save one. Which do you save?",
     options: {
       A: "Arsenal",
       B: "Real Madrid",
