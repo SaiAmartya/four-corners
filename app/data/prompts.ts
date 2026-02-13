@@ -13,7 +13,7 @@ export const prompts: Prompt[] = [
   {
     id: "P01",
     prompt:
-      "There are three trolleys about to run over the players of these Football Clubs; You can only save one. Which do you save?",
+      "There are three trolleys about to run over the players of these football clubs — you can only save one. Which do you save?",
     options: {
       A: "Arsenal",
       B: "Real Madrid",
@@ -24,7 +24,7 @@ export const prompts: Prompt[] = [
   {
     id: "P02",
     prompt:
-      "Three trolleys are about to run over all backup files of these games; deleting three of these four games. You can only save one. Which do you save?",
+      "Three trolleys are about to run over all backup files of these games, deleting three of these four games. You can only save one. Which do you save?",
     options: {
       A: "Fortnite",
       B: "Minecraft",
@@ -35,7 +35,7 @@ export const prompts: Prompt[] = [
   {
     id: "P03",
     prompt:
-      "Memories are being erased by alien technology about three of these four sports. You can only save one. Which do you save?",
+      "Alien technology is erasing all memory of three of these four sports. You can only save one. Which do you save?",
     options: {
       A: "Soccer",
       B: "Volleyball",
@@ -46,7 +46,7 @@ export const prompts: Prompt[] = [
   {
     id: "P04",
     prompt:
-      "You have Four tickets and Three trolleys are about to run over three of these four tickets. You can only save one. Which do you save?",
+      "You have four tickets, but three trolleys are about to run over three of them. You can only save one. Which do you save?",
     options: {
       A: "Paris",
       B: "Tokyo",
@@ -79,7 +79,7 @@ export const prompts: Prompt[] = [
   {
     id: "P07",
     prompt:
-      "Three of these four genre's are being removed from existence. You can only save one. Which do you save?",
+      "Three of these four genres are being removed from existence. You can only save one. Which do you save?",
     options: {
       A: "Rap",
       B: "Hip Hop",
