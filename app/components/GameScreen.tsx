@@ -6,8 +6,11 @@ import CornerCard from "./CornerCard";
 import ProgressBar from "./ProgressBar";
 import Confetti from "./Confetti";
 import Bubbles from "./Bubbles";
+import DiscussionTimer from "./DiscussionTimer";
 
 type GamePhase = "countdown" | "prompt" | "corners" | "finished";
+
+const DISCUSSION_SECONDS = 120; // 2 minutes
 
 const CORNER_CONFIG = [
   {
@@ -57,6 +60,8 @@ export default function GameScreen({ onExit }: GameScreenProps) {
   const [phase, setPhase] = useState<GamePhase>("countdown");
   const [countdownValue, setCountdownValue] = useState(3);
   const [cornersVisible, setCornersVisible] = useState(false);
+  const [timerRunning, setTimerRunning] = useState(false);
+  const [timerKey, setTimerKey] = useState(0);
 
   const currentPrompt = prompts[roundIndex];
 
@@ -77,11 +82,14 @@ export default function GameScreen({ onExit }: GameScreenProps) {
     const timer = setTimeout(() => {
       setPhase("corners");
       setCornersVisible(true);
+      setTimerKey((k) => k + 1);
+      setTimerRunning(true);
     }, 2000);
     return () => clearTimeout(timer);
   }, [phase]);
 
   const handleNext = useCallback(() => {
+    setTimerRunning(false);
     if (roundIndex < prompts.length - 1) {
       setCornersVisible(false);
       setRoundIndex((i) => i + 1);
@@ -94,16 +102,22 @@ export default function GameScreen({ onExit }: GameScreenProps) {
 
   const handlePrev = useCallback(() => {
     if (roundIndex > 0) {
+      setTimerRunning(false);
       setCornersVisible(false);
       setRoundIndex((i) => i - 1);
       setPhase("corners");
-      setTimeout(() => setCornersVisible(true), 100);
+      setTimeout(() => {
+        setCornersVisible(true);
+        setTimerKey((k) => k + 1);
+        setTimerRunning(true);
+      }, 100);
     }
   }, [roundIndex]);
 
   const handleRestart = useCallback(() => {
     setRoundIndex(0);
     setCornersVisible(false);
+    setTimerRunning(false);
     setCountdownValue(3);
     setPhase("countdown");
   }, []);
@@ -112,8 +126,14 @@ export default function GameScreen({ onExit }: GameScreenProps) {
     if (phase === "countdown" || phase === "prompt") {
       setPhase("corners");
       setCornersVisible(true);
+      setTimerKey((k) => k + 1);
+      setTimerRunning(true);
     }
   }, [phase]);
+
+  const handleTimerComplete = useCallback(() => {
+    setTimerRunning(false);
+  }, []);
 
   // Keyboard navigation
   useEffect(() => {
@@ -241,7 +261,7 @@ export default function GameScreen({ onExit }: GameScreenProps) {
         <div className="flex flex-1 items-start justify-between px-6 pt-4 sm:px-8 sm:pt-6 md:px-10 md:pt-8">
           <CornerCard
             label={CORNER_CONFIG[0].label}
-            text={currentPrompt.corners.A}
+            text={currentPrompt.options.A}
             color={CORNER_CONFIG[0].color}
             lightColor={CORNER_CONFIG[0].lightColor}
             animationClass={CORNER_CONFIG[0].animClass}
@@ -249,10 +269,11 @@ export default function GameScreen({ onExit }: GameScreenProps) {
             visible={cornersVisible}
             emoji={CORNER_CONFIG[0].emoji}
             position="top-left"
+            imageUrl={currentPrompt.images?.A}
           />
           <CornerCard
             label={CORNER_CONFIG[1].label}
-            text={currentPrompt.corners.B}
+            text={currentPrompt.options.B}
             color={CORNER_CONFIG[1].color}
             lightColor={CORNER_CONFIG[1].lightColor}
             animationClass={CORNER_CONFIG[1].animClass}
@@ -260,11 +281,22 @@ export default function GameScreen({ onExit }: GameScreenProps) {
             visible={cornersVisible}
             emoji={CORNER_CONFIG[1].emoji}
             position="top-right"
+            imageUrl={currentPrompt.images?.B}
           />
         </div>
 
         {/* CENTER: Prompt + navigation */}
         <div className="absolute inset-0 flex flex-col items-center justify-center pointer-events-none px-6">
+          {phase === "corners" && (
+            <div className="pointer-events-auto mb-4">
+              <DiscussionTimer
+                key={timerKey}
+                durationSeconds={DISCUSSION_SECONDS}
+                running={timerRunning}
+                onComplete={handleTimerComplete}
+              />
+            </div>
+          )}
           <div
             className="animate-pop-in pointer-events-auto max-w-3xl text-center px-6"
             onClick={phase === "prompt" ? handleSkipToCorners : undefined}
@@ -273,7 +305,7 @@ export default function GameScreen({ onExit }: GameScreenProps) {
           >
             <span className="mb-3 inline-block text-5xl">🤔</span>
             <h2 className="text-xl font-extrabold leading-relaxed text-zinc-800 sm:text-2xl md:text-3xl lg:text-4xl">
-              {currentPrompt.question}
+              {currentPrompt.prompt}
             </h2>
             {phase === "prompt" && (
               <p className="animate-fade-in mt-4 text-base text-zinc-400">
@@ -283,7 +315,7 @@ export default function GameScreen({ onExit }: GameScreenProps) {
           </div>
 
           {phase === "corners" && (
-            <div className="pointer-events-auto mt-6 flex flex-col items-center gap-3">
+            <div className="pointer-events-auto mt-4 flex flex-col items-center gap-3">
               <button
                 onClick={handleNext}
                 className="group rounded-full bg-gradient-to-r from-[#FF6B6B] via-[#FFD93D] to-[#6C5CE7] p-1 shadow-xl transition-transform hover:scale-110 active:scale-95"
@@ -293,7 +325,7 @@ export default function GameScreen({ onExit }: GameScreenProps) {
                     ? "Next Round →"
                     : "Finish 🎉"}
                 </span>
-                </button>
+              </button>
             </div>
           )}
         </div>
@@ -302,7 +334,7 @@ export default function GameScreen({ onExit }: GameScreenProps) {
         <div className="flex flex-1 items-end justify-between px-6 pb-6 sm:px-8 sm:pb-8 md:px-10 md:pb-10">
           <CornerCard
             label={CORNER_CONFIG[2].label}
-            text={currentPrompt.corners.C}
+            text={currentPrompt.options.C}
             color={CORNER_CONFIG[2].color}
             lightColor={CORNER_CONFIG[2].lightColor}
             animationClass={CORNER_CONFIG[2].animClass}
@@ -310,10 +342,11 @@ export default function GameScreen({ onExit }: GameScreenProps) {
             visible={cornersVisible}
             emoji={CORNER_CONFIG[2].emoji}
             position="bottom-left"
+            imageUrl={currentPrompt.images?.C}
           />
           <CornerCard
             label={CORNER_CONFIG[3].label}
-            text={currentPrompt.corners.D}
+            text={currentPrompt.options.D}
             color={CORNER_CONFIG[3].color}
             lightColor={CORNER_CONFIG[3].lightColor}
             animationClass={CORNER_CONFIG[3].animClass}
@@ -321,6 +354,7 @@ export default function GameScreen({ onExit }: GameScreenProps) {
             visible={cornersVisible}
             emoji={CORNER_CONFIG[3].emoji}
             position="bottom-right"
+            imageUrl={currentPrompt.images?.D}
           />
         </div>
       </div>
