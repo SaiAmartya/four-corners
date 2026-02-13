@@ -241,7 +241,7 @@ export default function GameScreen({ onExit }: GameScreenProps) {
         <div className="flex flex-1 items-start justify-between px-6 pt-4 sm:px-8 sm:pt-6 md:px-10 md:pt-8">
           <CornerCard
             label={CORNER_CONFIG[0].label}
-            text={currentPrompt.corners.A}
+            text={currentPrompt.options.A}
             color={CORNER_CONFIG[0].color}
             lightColor={CORNER_CONFIG[0].lightColor}
             animationClass={CORNER_CONFIG[0].animClass}
@@ -252,7 +252,7 @@ export default function GameScreen({ onExit }: GameScreenProps) {
           />
           <CornerCard
             label={CORNER_CONFIG[1].label}
-            text={currentPrompt.corners.B}
+            text={currentPrompt.options.B}
             color={CORNER_CONFIG[1].color}
             lightColor={CORNER_CONFIG[1].lightColor}
             animationClass={CORNER_CONFIG[1].animClass}
@@ -273,7 +273,7 @@ export default function GameScreen({ onExit }: GameScreenProps) {
           >
             <span className="mb-3 inline-block text-5xl">🤔</span>
             <h2 className="text-xl font-extrabold leading-relaxed text-zinc-800 sm:text-2xl md:text-3xl lg:text-4xl">
-              {currentPrompt.question}
+              {currentPrompt.prompt}
             </h2>
             {phase === "prompt" && (
               <p className="animate-fade-in mt-4 text-base text-zinc-400">
@@ -302,7 +302,7 @@ export default function GameScreen({ onExit }: GameScreenProps) {
         <div className="flex flex-1 items-end justify-between px-6 pb-6 sm:px-8 sm:pb-8 md:px-10 md:pb-10">
           <CornerCard
             label={CORNER_CONFIG[2].label}
-            text={currentPrompt.corners.C}
+            text={currentPrompt.options.C}
             color={CORNER_CONFIG[2].color}
             lightColor={CORNER_CONFIG[2].lightColor}
             animationClass={CORNER_CONFIG[2].animClass}
@@ -313,7 +313,7 @@ export default function GameScreen({ onExit }: GameScreenProps) {
           />
           <CornerCard
             label={CORNER_CONFIG[3].label}
-            text={currentPrompt.corners.D}
+            text={currentPrompt.options.D}
             color={CORNER_CONFIG[3].color}
             lightColor={CORNER_CONFIG[3].lightColor}
             animationClass={CORNER_CONFIG[3].animClass}
